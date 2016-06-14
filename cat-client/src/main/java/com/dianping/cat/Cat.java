@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Date;
 
+import com.dianping.cat.message.io.TransportManager;
 import org.codehaus.plexus.PlexusContainer;
 import org.codehaus.plexus.component.repository.exception.ComponentLookupException;
 import org.unidal.helper.Files;
@@ -55,6 +56,15 @@ public class Cat {
 
 	public static String createMessageId() {
 		return Cat.getProducer().createMessageId();
+	}
+
+	public static String createMessageId(String domain, String ipAddress, long current_timestamp){
+		return MessageIdCreater.createMessageId(domain, ipAddress, current_timestamp);
+	}
+
+	public static void sendMessage(MessageTree tree) throws ComponentLookupException {
+		TransportManager manager = s_instance.m_container.lookup(TransportManager.class);
+		manager.getSender().send(tree);
 	}
 
 	public static void destroy() {
