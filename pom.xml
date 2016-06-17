@@ -235,12 +235,12 @@ org.eclipse.jdt.core.compiler.compliance=1.6
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
-			<id>dianping.repo</id>
-			<url>http://mvn.dianpingoa.com/dianping-releases</url>
+			<id>releases</id>
+			<url>http://repo.mx.com/content/repositories/mx</url>
 		</repository>
 		<snapshotRepository>
-			<id>dianping.repo.snapshots</id>
-			<url>http://mvn.dianpingoa.com/dianping-snapshots</url>
+			<id>snapshots</id>
+			<url>http://repo.mx.com/content/repositories/mx-snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<properties>

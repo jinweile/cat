@@ -63,6 +63,7 @@ public class Cat {
 	}
 
 	public static void sendMessage(MessageTree tree) throws ComponentLookupException {
+		checkAndInitialize();
 		TransportManager manager = s_instance.m_container.lookup(TransportManager.class);
 		manager.getSender().send(tree);
 	}
