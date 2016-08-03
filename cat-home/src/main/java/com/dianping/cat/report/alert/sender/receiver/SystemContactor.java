@@ -16,27 +16,27 @@ public class SystemContactor extends ProjectContactor {
 	}
 
 	@Override
-	public List<String> queryEmailContactors(String domain) {
+	public List<String> queryEmailContactors(String domain, String idSuffix) {
 		if (domain.startsWith(prefix)) {
 			domain = domain.substring(7);
 		}
-		return super.queryEmailContactors(domain);
+		return super.queryEmailContactors(domain, "");
 	}
 
 	@Override
-	public List<String> querySmsContactors(String domain) {
+	public List<String> querySmsContactors(String domain, String idSuffix) {
 		if (domain.startsWith(prefix)) {
 			domain = domain.substring(7);
 		}
-		return super.querySmsContactors(domain);
+		return super.querySmsContactors(domain, "");
 	}
 
 	@Override
-	public List<String> queryWeiXinContactors(String domain) {
+	public List<String> queryWeiXinContactors(String domain, String idSuffix) {
 		if (domain.startsWith(prefix)) {
 			domain = domain.substring(7);
 		}
-		return super.queryWeiXinContactors(domain);
+		return super.queryWeiXinContactors(domain, "");
 	}
 
 }

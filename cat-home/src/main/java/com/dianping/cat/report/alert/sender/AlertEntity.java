@@ -19,6 +19,8 @@ public class AlertEntity {
 	private String m_metric;
 
 	private String m_content;
+    
+    private String m_idSuffix;
 
 	private Map<String, Object> m_paras = new HashMap<String, Object>();
 
@@ -49,6 +51,10 @@ public class AlertEntity {
 	public String getGroup() {
 		return m_group;
 	}
+    
+    public String getIdSuffix() {
+        return m_idSuffix;
+    }
 
 	public String getKey() {
 		return m_level + ":" + m_type + ":" + m_group + ":" + m_metric;
@@ -84,6 +90,11 @@ public class AlertEntity {
 		m_group = group;
 		return this;
 	}
+    
+    public AlertEntity setIdSuffix(String idSuffix) {
+        m_idSuffix = idSuffix;
+        return this;
+    }
 
 	public AlertEntity setLevel(String level) {
 		m_level = level;

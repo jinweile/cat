@@ -136,6 +136,7 @@ public class AlertManager implements Initializable {
 		String group = alert.getGroup();
 		String level = alert.getLevel();
 		String alertKey = alert.getKey();
+        String idSuffix = alert.getIdSuffix();
 		List<AlertChannel> channels = m_policyManager.queryChannels(type, group, level);
 		int suspendMinute = m_policyManager.querySuspendMinute(type, group, level);
 
@@ -159,7 +160,7 @@ public class AlertManager implements Initializable {
 				rawContent = rawContent + "<br/>[告警间隔时间]" + suspendMinute + "分钟";
 			}
 			String content = m_splitterManager.process(rawContent, channel);
-			List<String> receivers = m_contactorManager.queryReceivers(alert.getContactGroup(), channel, type);
+			List<String> receivers = m_contactorManager.queryReceivers(alert.getContactGroup(), channel, type, idSuffix);
 			message = new AlertMessageEntity(group, title, type, content, receivers);
 
 			if (m_senderManager.sendAlert(channel, message)) {
@@ -182,12 +183,13 @@ public class AlertManager implements Initializable {
 		String type = alert.getType();
 		String group = alert.getGroup();
 		String level = alert.getLevel();
+        String idSuffix = alert.getIdSuffix();
 		List<AlertChannel> channels = m_policyManager.queryChannels(type, group, level);
 
 		for (AlertChannel channel : channels) {
 			String title = "[告警恢复] [告警类型 " + generateTypeStr(type) + "][" + group + " " + alert.getMetric() + "]";
 			String content = "[告警已恢复][恢复时间]" + currentMinute;
-			List<String> receivers = m_contactorManager.queryReceivers(alert.getContactGroup(), channel, type);
+			List<String> receivers = m_contactorManager.queryReceivers(alert.getContactGroup(), channel, type, idSuffix);
 			AlertMessageEntity message = new AlertMessageEntity(group, title, type, content, receivers);
 
 			if (m_senderManager.sendAlert(channel, message)) {

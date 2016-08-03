@@ -19,15 +19,16 @@ public class ContactorManager extends ContainerHolder implements Initializable {
 		m_contactors = lookupMap(Contactor.class);
 	}
 
-	public List<String> queryReceivers(String group, AlertChannel channel, String type) {
+	public List<String> queryReceivers(String group, AlertChannel channel, String type,
+            String idSuffix) {
 		Contactor contactor = m_contactors.get(type);
 
 		if (AlertChannel.MAIL == channel) {
-			return contactor.queryEmailContactors(group);
+			return contactor.queryEmailContactors(group, idSuffix);
 		} else if (AlertChannel.SMS == channel) {
-			return contactor.querySmsContactors(group);
+			return contactor.querySmsContactors(group, idSuffix);
 		} else if (AlertChannel.WEIXIN == channel) {
-			return contactor.queryWeiXinContactors(group);
+			return contactor.queryWeiXinContactors(group, idSuffix);
 		} else {
 			throw new RuntimeException("unsupported channnel");
 		}

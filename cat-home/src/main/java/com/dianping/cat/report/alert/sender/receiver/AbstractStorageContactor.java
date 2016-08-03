@@ -16,7 +16,7 @@ public abstract class AbstractStorageContactor extends DefaultContactor implemen
 	public abstract String getId();
 
 	@Override
-	public List<String> queryEmailContactors(String id) {
+	public List<String> queryEmailContactors(String id, String idSuffix) {
 		List<String> mailReceivers = new ArrayList<String>();
 
 		Receiver receiver = m_alertConfigManager.queryReceiverById(getId());
@@ -31,7 +31,7 @@ public abstract class AbstractStorageContactor extends DefaultContactor implemen
 	}
 
 	@Override
-	public List<String> queryWeiXinContactors(String id) {
+	public List<String> queryWeiXinContactors(String id, String idSuffix) {
 		List<String> weixinReceivers = new ArrayList<String>();
 		Receiver receiver = m_alertConfigManager.queryReceiverById(getId());
 
@@ -45,7 +45,7 @@ public abstract class AbstractStorageContactor extends DefaultContactor implemen
 	}
 
 	@Override
-	public List<String> querySmsContactors(String id) {
+	public List<String> querySmsContactors(String id, String idSuffix) {
 		List<String> smsReceivers = new ArrayList<String>();
 		Receiver receiver = m_alertConfigManager.queryReceiverById(getId());
 

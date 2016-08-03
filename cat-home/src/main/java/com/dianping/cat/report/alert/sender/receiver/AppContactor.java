@@ -37,18 +37,18 @@ public class AppContactor extends ProjectContactor {
 	}
 
 	@Override
-	public List<String> queryEmailContactors(String id) {
-		return super.queryEmailContactors(queryDomainByCommand(id));
+	public List<String> queryEmailContactors(String id, String idSuffix) {
+		return super.queryEmailContactors(queryDomainByCommand(id), idSuffix);
 	}
 
 	@Override
-	public List<String> queryWeiXinContactors(String id) {
-		return super.queryWeiXinContactors(queryDomainByCommand(id));
+	public List<String> queryWeiXinContactors(String id, String idSuffix) {
+		return super.queryWeiXinContactors(queryDomainByCommand(id), idSuffix);
 	}
 
 	@Override
-	public List<String> querySmsContactors(String id) {
-		return super.querySmsContactors(queryDomainByCommand(id));
+	public List<String> querySmsContactors(String id, String idSuffix) {
+		return super.querySmsContactors(queryDomainByCommand(id), idSuffix);
 
 	}
 

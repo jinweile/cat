@@ -21,9 +21,13 @@ public abstract class ProjectContactor extends DefaultContactor implements Conta
 	protected AlertConfigManager m_configManager;
 
 	@Override
-	public List<String> queryEmailContactors(String id) {
+	public List<String> queryEmailContactors(String id, String idSuffix) {
 		List<String> mailReceivers = new ArrayList<String>();
-		Receiver receiver = m_configManager.queryReceiverById(getId());
+        String idName = getId();
+        if (idSuffix != null && !idSuffix.isEmpty()) {
+            idName += "_" + idSuffix; 
+        }
+		Receiver receiver = m_configManager.queryReceiverById(idName);
 
 		if (receiver != null && !receiver.isEnable()) {
 			return mailReceivers;
@@ -42,9 +46,13 @@ public abstract class ProjectContactor extends DefaultContactor implements Conta
 	}
 
 	@Override
-	public List<String> querySmsContactors(String id) {
+	public List<String> querySmsContactors(String id, String idSuffix) {
 		List<String> smsReceivers = new ArrayList<String>();
-		Receiver receiver = m_configManager.queryReceiverById(getId());
+        String idName = getId();
+        if (idSuffix != null && !idSuffix.isEmpty()) {
+            idName += "_" + idSuffix; 
+        }
+		Receiver receiver = m_configManager.queryReceiverById(idName);
 
 		if (receiver != null && !receiver.isEnable()) {
 			return smsReceivers;
@@ -63,9 +71,13 @@ public abstract class ProjectContactor extends DefaultContactor implements Conta
 	}
 
 	@Override
-	public List<String> queryWeiXinContactors(String id) {
+	public List<String> queryWeiXinContactors(String id, String idSuffix) {
 		List<String> weixinReceivers = new ArrayList<String>();
-		Receiver receiver = m_configManager.queryReceiverById(getId());
+        String idName = getId();
+        if (idSuffix != null && !idSuffix.isEmpty()) {
+            idName += "_" + idSuffix; 
+        }
+		Receiver receiver = m_configManager.queryReceiverById(idName);
 
 		if (receiver != null && !receiver.isEnable()) {
 			return weixinReceivers;

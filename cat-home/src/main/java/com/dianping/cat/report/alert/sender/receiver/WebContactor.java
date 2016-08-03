@@ -31,17 +31,17 @@ public class WebContactor extends ProjectContactor {
 	}
 
 	@Override
-	public List<String> queryEmailContactors(String id) {
-		return super.queryEmailContactors(queryDomainByUrl(id));
+	public List<String> queryEmailContactors(String id, String idSuffix) {
+		return super.queryEmailContactors(queryDomainByUrl(id), idSuffix);
 	}
 
 	@Override
-	public List<String> queryWeiXinContactors(String id) {
-		return super.queryWeiXinContactors(queryDomainByUrl(id));
+	public List<String> queryWeiXinContactors(String id, String idSuffix) {
+		return super.queryWeiXinContactors(queryDomainByUrl(id), idSuffix);
 	}
 
 	@Override
-	public List<String> querySmsContactors(String id) {
-		return super.querySmsContactors(queryDomainByUrl(id));
+	public List<String> querySmsContactors(String id, String idSuffix) {
+		return super.querySmsContactors(queryDomainByUrl(id), idSuffix);
 	}
 }

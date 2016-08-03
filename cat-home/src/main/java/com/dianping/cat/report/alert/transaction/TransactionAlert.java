@@ -238,7 +238,8 @@ public class TransactionAlert implements Task, LogEnabled {
 
 			entity.setDate(alertResult.getAlertTime()).setContent(alertResult.getContent())
 			      .setLevel(alertResult.getAlertLevel());
-			entity.setMetric(type + "-" + name + "-" + monitor).setType(getName()).setGroup(domain);
+			entity.setMetric(type + "-" + name + "-" + monitor).setType(getName()).setGroup(domain)
+                    .setIdSuffix(type);
 			m_sendManager.addAlert(entity);
 		}
 	}

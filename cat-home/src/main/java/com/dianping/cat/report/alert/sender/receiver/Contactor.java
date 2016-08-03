@@ -6,9 +6,9 @@ public interface Contactor {
 
 	public String getId();
 
-	public List<String> queryEmailContactors(String id);
+	public List<String> queryEmailContactors(String id, String idSuffix);
 
-	public List<String> queryWeiXinContactors(String id);
+	public List<String> queryWeiXinContactors(String id, String idSuffix);
 
-	public List<String> querySmsContactors(String id);
+	public List<String> querySmsContactors(String id, String idSuffix);
 }
